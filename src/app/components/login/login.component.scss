@@ -1,0 +1,25 @@
+.form-signin {
+  max-width: 300px;
+  padding: 10px;
+  margin: 0 auto;
+
+  .form-signin-heading,
+  .checkbox {
+    margin-bottom: 10px;
+  }
+  
+  .form-control {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+  }
+ 
+  label {
+    vertical-align: bottom;
+  }
+  
+}
