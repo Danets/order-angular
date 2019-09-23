@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Hi the best Athor!!!</h1>
+<div mat-dialog-content>
+    <p>Put title your post</p>
+    <mat-form-field>
+        <input matInput placeholder="Put title" [(ngModel)]="post.title">
+    </mat-form-field>
+    <mat-form-field>
+        <textarea matInput placeholder="Put description" [(ngModel)]="post.description"></textarea>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="cancelClick()">Cancel</button>
+    <button mat-button (click)="addPost()" cdkFocusInitial>Ok</button>
+</div>
