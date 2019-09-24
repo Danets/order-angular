@@ -8,13 +8,17 @@ import { CommonService } from './common.service';
     selector: 'app-dialog',
     templateUrl: './dialog.component.html',
 })
-export class DialogComponent {
+export class DialogComponent implements OnInit {
     post: Post
 
     constructor(public dialogRef: MatDialogRef<DialogComponent>,
         private postService: PostService,
         private commonService: CommonService) {
         this.post = new Post();
+    }
+
+    ngOnInit() {
+        
     }
 
     cancelClick(): void {
@@ -24,10 +28,17 @@ export class DialogComponent {
     addPost(post: Post) {
 
         if (this.post.title && this.post.description) {
-            this.postService.addPost(this.post).subscribe(res => {
-                this.commonService.notifyPostAddition();
-                this.cancelClick();
-            })
+            if (this.post._id) {
+                this.postService.updatePost(this.post).subscribe(res => {
+                    this.commonService.notifyPostAddition();
+                    this.cancelClick();
+                });
+            } else {
+                this.postService.addPost(this.post).subscribe(res => {
+                    this.commonService.notifyPostAddition();
+                    this.cancelClick();
+                })
+            }
         } else {
             alert('Title and Description are empty!!!');
         }

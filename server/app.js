@@ -58,13 +58,8 @@ app.post('/api/user/create', (req, res) => {
 
 })
 
-app.post('/api/post/createPost', (req, res) => {
-
-    const post = new Post({
-        title: req.body.title,
-        description: req.body.description
-    })
-    post.save((err, doc) => {
+app.post('/api/post/getAllPost', (req, res) => {
+    Post.find({}, [], { sort: { _id: -1 } }, (err, doc) => {
         if (err) throw err;
         return res.status(200).json({
             status: 'success',
@@ -87,8 +82,13 @@ app.post('/api/post/getPost', (req, res) => {
     })
 })
 
-app.post('/api/post/getAllPost', (req, res) => {
-    Post.find({}, [], { sort: { _id: -1 } }, (err, doc) => {
+app.post('/api/post/createPost', (req, res) => {
+
+    const post = new Post({
+        title: req.body.title,
+        description: req.body.description
+    })
+    post.save((err, doc) => {
         if (err) throw err;
         return res.status(200).json({
             status: 'success',
@@ -97,3 +97,15 @@ app.post('/api/post/getAllPost', (req, res) => {
     })
 })
 
+app.post('/api/post/updatePost', (req, res) => {
+    Post.update(
+        {_id: req.body.id },
+        { title : req.body.title, description: req.body.description },
+        (err, doc) => {
+        if(err) throw err;
+        return res.status(200).json({
+            status: 'success',
+            data: doc
+        })
+    })
+})

@@ -1,0 +1,14 @@
+.nav {
+    display: flex;
+    justify-content: space-around;  
+    margin: 10px auto;
+    padding: 0;
+    list-style-type: none;
+    .nav-item {
+        .nav-link {
+            display: block;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+}

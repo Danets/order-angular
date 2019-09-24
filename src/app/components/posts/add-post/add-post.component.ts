@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { CommonService } from '../../../shared/common.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../../shared/dialog.component';
 import { Post } from '../../../models/post'
@@ -11,12 +12,13 @@ import { Post } from '../../../models/post'
 export class AddPostComponent implements OnInit {
   public post: Post
 
-  constructor(public dialog: MatDialog) {
+  // @ViewChild('editPost', { static: false }) editBtn: ElementRef;
+
+  constructor(public dialog: MatDialog, private commonService: CommonService) {
     this.post = new Post();
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {

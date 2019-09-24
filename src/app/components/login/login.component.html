@@ -4,16 +4,16 @@
         <input name="email" type="email" [(ngModel)]="user.username" id="inputEmail" class="form-control"
             placeholder="Email address" required email #emailInput="ngModel" autocomplete="on">
     </label>
-    <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+    <!-- <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
         Email is required and it must be email!!!
-    </div>
+    </div> -->
     <label for="inputPassword" class="sr-only">Password
         <input name="password" type="password" [(ngModel)]="user.password" id="inputPassword" class="form-control"
             placeholder="Password" required #passwordInput="ngModel" autocomplete="on">
     </label>
-    <div class="help is-error" *ngIf="passwordInput.invalid && passwordInput.dirty">
+    <!-- <div class="help is-error" *ngIf="passwordInput.invalid && passwordInput.dirty">
         Password is required !!!
-    </div>
+    </div> -->
     <div class="checkbox">
         <label>
             <input type="checkbox" value="remember-me"> Remember me
