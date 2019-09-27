@@ -28,17 +28,21 @@ export class DialogComponent implements OnInit {
     addPost(post: Post) {
 
         if (this.post.title && this.post.description) {
-            if (this.post._id) {
-                this.postService.updatePost(this.post).subscribe(res => {
-                    this.commonService.notifyPostAddition();
-                    this.cancelClick();
-                });
-            } else {
-                this.postService.addPost(this.post).subscribe(res => {
-                    this.commonService.notifyPostAddition();
-                    this.cancelClick();
-                })
-            }
+            this.postService.addPost(this.post).subscribe(res => {
+                        this.commonService.notifyPostAddition();
+                        this.cancelClick();
+                    })
+            // if (this.post._id) {
+            //     this.postService.updatePost(this.post).subscribe(res => {
+            //         this.commonService.notifyPostAddition();
+            //         this.cancelClick();
+            //     });
+            // } else {
+            //     this.postService.addPost(this.post).subscribe(res => {
+            //         this.commonService.notifyPostAddition();
+            //         this.cancelClick();
+            //     })
+            // }
         } else {
             alert('Title and Description are empty!!!');
         }

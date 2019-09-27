@@ -16,4 +16,12 @@ export class LoginService {
     })
   }
 
+  validateRegister(user: User) {
+    return this.http.post('/api/user/create', {
+      username: user.username,
+      password: user.password,
+      //email: user.email
+    })
+  }
+
 }

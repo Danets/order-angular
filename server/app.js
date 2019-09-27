@@ -40,19 +40,16 @@ app.post('/api/user/login', (req, res) => {
 })
 
 app.post('/api/user/create', (req, res) => {
-
     const user = new User({
-        name: req.body.name,
         username: req.body.username,
         password: req.body.password
     })
-
-    user.save((err, res) => {
+    user.save((err, doc) => {
         if (err) throw err;
 
         return res.status(200).json({
             status: 'success',
-            data: res
+            data: doc
         })
     })
 
@@ -98,9 +95,21 @@ app.post('/api/post/createPost', (req, res) => {
 })
 
 app.post('/api/post/updatePost', (req, res) => {
-    Post.update(
+    Post.findByIdAndUpdate(
         {_id: req.body.id },
         { title : req.body.title, description: req.body.description },
+        {new: true}, 
+        (err, doc) => {
+        if(err) throw err;
+        return res.status(200).json({
+            status: 'success',
+            data: doc
+        })
+    })
+})
+
+app.post('/api/post/deletePost', (req, res) => {
+	Post.findByIdAndDelete(req.body.id,
         (err, doc) => {
         if(err) throw err;
         return res.status(200).json({

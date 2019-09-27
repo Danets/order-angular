@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
     if (this.user.username && this.user.password) {
       this.loginService.validateLogin(this.user).subscribe(result => {
         if (result['status'] === 'success') {
+          localStorage.setItem('loggedInUser', this.user.username);
           this.router.navigate(['/home']);
           //this.user = result['data'][0];
         } else {

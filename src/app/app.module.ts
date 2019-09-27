@@ -17,6 +17,10 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { ListPostComponent } from './components/posts/list-post/list-post.component';
 import { AddPostComponent } from './components/posts/add-post/add-post.component';
 import {DialogComponent} from './shared/dialog.component';
+import {DialogEditComponent} from './shared/dialogEdit.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { PostComponent } from './components/posts/list-post/post/post.component';
 
 @NgModule({
   declarations: [
@@ -26,9 +30,13 @@ import {DialogComponent} from './shared/dialog.component';
     NavigationComponent,
     ListPostComponent,
     AddPostComponent,
-    DialogComponent
+    DialogComponent,
+    DialogEditComponent,
+    FooterComponent,
+    SignupComponent,
+    PostComponent
   ],
-  entryComponents: [DialogComponent],
+  entryComponents: [DialogComponent, DialogEditComponent],
   imports: [
     BrowserModule,
     FormsModule,

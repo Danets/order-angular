@@ -4,6 +4,9 @@ import {
   MatButtonModule,
   MatFormFieldModule,
   MatInputModule,
+  MatCheckboxModule,
+  MatRadioModule,
+  MatSelectModule,
   MatListModule,
   MatMenuModule
 } from '@angular/material';
@@ -14,6 +17,9 @@ const material = [
   MatButtonModule,
   MatFormFieldModule,
   MatInputModule,
+  MatCheckboxModule,
+  MatRadioModule,
+  MatSelectModule,
   MatListModule,
   MatMenuModule
 ]

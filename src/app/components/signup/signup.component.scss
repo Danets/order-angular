@@ -1,0 +1,15 @@
+.form-signup {
+  display: flex;
+  flex-flow: column wrap;
+  max-width: 300px;
+  padding: 10px;
+  margin: 0 auto;
+
+  .form-signin-heading {
+    margin-bottom: 10px;
+  }
+  .btn-signup {
+    width: 50%;
+    margin: 0 auto;
+  }
+}

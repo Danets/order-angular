@@ -1,1 +1,21 @@
-<p>navigation works!</p>
+<header class="header">
+
+    <nav>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact:true}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/logout" (click)="logout()" routerLinkActive="active">Logout</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/add" routerLinkActive="active">Add</a>
+            </li>
+        </ul>
+    </nav>
+
+</header>

@@ -1,23 +1,30 @@
 <form class="form-signin">
     <h2 class="form-signin-heading">Sign in</h2>
-    <label for="inputEmail" class="sr-only">Email address
+    <label for="inputEmail">Email address
         <input name="email" type="email" [(ngModel)]="user.username" id="inputEmail" class="form-control"
             placeholder="Email address" required email #emailInput="ngModel" autocomplete="on">
     </label>
     <!-- <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
         Email is required and it must be email!!!
     </div> -->
-    <label for="inputPassword" class="sr-only">Password
+    <label for="inputPassword">Password
         <input name="password" type="password" [(ngModel)]="user.password" id="inputPassword" class="form-control"
             placeholder="Password" required #passwordInput="ngModel" autocomplete="on">
     </label>
     <!-- <div class="help is-error" *ngIf="passwordInput.invalid && passwordInput.dirty">
         Password is required !!!
     </div> -->
-    <div class="checkbox">
+
+    <mat-checkbox>Remember me!</mat-checkbox>
+    <!-- <div class="checkbox">
         <label>
             <input type="checkbox" value="remember-me"> Remember me
         </label>
+    </div> -->
+
+    <div class="checkbox">
+        <a mat-button color='warn' routerLink="/signup" >Have you not registered yet ?</a>
     </div>
-    <button class="btn" type="button" (click)="validateLogin()">Sign in</button>
+
+    <button mat-raised-button color='primary' type="button" (click)="validateLogin()">Sign in</button>
 </form>

@@ -1,0 +1,19 @@
+.nav {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px auto;
+  padding: 0;
+  list-style-type: none;
+  .nav-item {
+    .nav-link {
+      display: block;
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+      &.active {
+        color: rgb(206, 103, 44);
+        text-decoration: underline;
+      }
+    }
+  }
+}
