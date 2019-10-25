@@ -7,6 +7,7 @@ import { environment } from './environments/environment';
 import 'hammerjs';
 
 if (environment.production) {
+  window.console.log = () => {};
   enableProdMode();
 }
 

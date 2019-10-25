@@ -21,6 +21,9 @@ import {DialogEditComponent} from './shared/dialogEdit.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { PostComponent } from './components/posts/list-post/post/post.component';
+import { AddFormDirective } from './shared/add-form.directive';
+
+import { LoginService } from './components/login/login.service';
 
 @NgModule({
   declarations: [
@@ -34,9 +37,10 @@ import { PostComponent } from './components/posts/list-post/post/post.component'
     DialogEditComponent,
     FooterComponent,
     SignupComponent,
-    PostComponent
+    PostComponent,
+    AddFormDirective
   ],
-  entryComponents: [DialogComponent, DialogEditComponent],
+  entryComponents: [DialogComponent, DialogEditComponent, PostComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -46,7 +50,7 @@ import { PostComponent } from './components/posts/list-post/post/post.component'
     MaterialModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

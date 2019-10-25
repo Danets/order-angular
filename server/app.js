@@ -39,7 +39,8 @@ app.post('/api/user/login', (req, res) => {
     })
 })
 
-app.post('/api/user/create', (req, res) => {
+app.post('/api/user/signup', (req, res) => {
+    
     const user = new User({
         username: req.body.username,
         password: req.body.password

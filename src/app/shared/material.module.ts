@@ -26,6 +26,6 @@ const material = [
 
 @NgModule({
   imports: [material],
-  exports: [material]
+  exports: [material],
 })
 export class MaterialModule { }

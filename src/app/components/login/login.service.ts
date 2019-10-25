@@ -1,7 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 import { User } from '../../models/user';
 
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 @Injectable({
   providedIn: 'root'
 })
@@ -17,11 +26,11 @@ export class LoginService {
   }
 
   validateRegister(user: User) {
-    return this.http.post('/api/user/create', {
+    return this.http.post('/api/user/signup', {
       username: user.username,
       password: user.password,
       //email: user.email
-    })
+    }, httpOptions)
   }
 
 }
