@@ -24,6 +24,8 @@ import { PostComponent } from './components/posts/list-post/post/post.component'
 import { AddFormDirective } from './shared/add-form.directive';
 
 import { LoginService } from './components/login/login.service';
+import { OrganizeComponent } from './containers/organize/organize.component';
+import { SelectorComponent } from './components/selector/selector.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { LoginService } from './components/login/login.service';
     FooterComponent,
     SignupComponent,
     PostComponent,
-    AddFormDirective
+    AddFormDirective,
+    OrganizeComponent,
+    SelectorComponent
   ],
   entryComponents: [DialogComponent, DialogEditComponent, PostComponent],
   imports: [
