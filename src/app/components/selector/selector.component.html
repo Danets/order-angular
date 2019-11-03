@@ -1,1 +1,5 @@
-<p>selector works!</p>
+<div class="container">
+    <i class="icon" (click)="go(-1)">arrow_left</i>
+    <span>{{commonService.date | async | moment}}</span>
+    <i class="icon" (click)="go(1)">arrow_right</i>
+</div>

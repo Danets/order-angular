@@ -4,7 +4,7 @@ import { NgForm } from '@angular/forms';
 import { LoginService } from '../login/login.service';
 import { Router } from '@angular/router';
 
-import { AddFormDirective } from '../../shared/add-form.directive';
+import { AddFormDirective } from '../../directives/add-form.directive';
 import { PostComponent } from '../posts/list-post/post/post.component';
 
 import { User } from '../../models/user'

@@ -21,11 +21,13 @@ import {DialogEditComponent} from './shared/dialogEdit.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { PostComponent } from './components/posts/list-post/post/post.component';
-import { AddFormDirective } from './shared/add-form.directive';
+import { AddFormDirective } from './directives/add-form.directive';
 
 import { LoginService } from './components/login/login.service';
 import { OrganizeComponent } from './containers/organize/organize.component';
 import { SelectorComponent } from './components/selector/selector.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { MomentPipe } from './pipes/moment.pipe';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { SelectorComponent } from './components/selector/selector.component';
     PostComponent,
     AddFormDirective,
     OrganizeComponent,
-    SelectorComponent
+    SelectorComponent,
+    CalendarComponent,
+    MomentPipe
   ],
   entryComponents: [DialogComponent, DialogEditComponent, PostComponent],
   imports: [

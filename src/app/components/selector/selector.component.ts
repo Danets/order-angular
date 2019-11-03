@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from '../../shared/common.service';
 
 @Component({
   selector: 'app-selector',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private commonService: CommonService) { }
 
   ngOnInit() {
+  }
+
+  go(int: number) {
+    this.commonService.changeDate(int)
   }
 
 }
