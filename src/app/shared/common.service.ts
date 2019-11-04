@@ -18,9 +18,17 @@ export class CommonService {
         this.post_has_been_edited = new Post();
     }
 
-    changeDate(int: number) {
-        const val = this.date.value.add(int, 'month')
-        this.date.next(val)
+    changeMonth(int: number) {
+        const value = this.date.value.add(int, 'month')
+        this.date.next(value)
+    }
+
+    changeDate(date: moment.Moment) {
+        const value = this.date.value.set({
+            date: date.date(),
+            month: date.month()
+        })
+        this.date.next(value)
     }
 
     notifyPostAddition() {

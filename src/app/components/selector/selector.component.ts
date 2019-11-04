@@ -13,8 +13,8 @@ export class SelectorComponent implements OnInit {
   ngOnInit() {
   }
 
-  go(int: number) {
-    this.commonService.changeDate(int)
+  move(int: number) {
+    this.commonService.changeMonth(int)
   }
 
 }

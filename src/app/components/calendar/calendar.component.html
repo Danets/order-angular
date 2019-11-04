@@ -1,1 +1,25 @@
-<p>calendar works!</p>
+<table>
+    <thead>
+        <tr>
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wen</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let week of calendar">
+            <td *ngFor="let day of week.days"
+            [ngClass]="{'disabled': day.disabled}"
+            (click)="select(day.value)"
+             >
+                <span 
+                [ngClass]="{'selected': day.selected}"
+                [class.active]="day.active">{{day.value | moment:"D"}}</span>
+            </td>
+        </tr>
+    </tbody>
+</table>

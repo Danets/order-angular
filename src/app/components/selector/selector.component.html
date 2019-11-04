@@ -1,5 +1,9 @@
 <div class="container">
-    <i class="icon" (click)="go(-1)">arrow_left</i>
+    <button mat-icon-button color="primary" (click)="move(-1)">
+        <mat-icon>arrow_left</mat-icon>
+    </button>
     <span>{{commonService.date | async | moment}}</span>
-    <i class="icon" (click)="go(1)">arrow_right</i>
+    <button mat-icon-button color="primary" (click)="move(1)">
+        <mat-icon>arrow_right</mat-icon>
+    </button>
 </div>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import {
   MatDialogModule,
   MatButtonModule,
+  MatIconModule,
   MatFormFieldModule,
   MatInputModule,
   MatCheckboxModule,
@@ -15,6 +16,7 @@ import {
 const material = [
   MatDialogModule,
   MatButtonModule,
+  MatIconModule,
   MatFormFieldModule,
   MatInputModule,
   MatCheckboxModule,
