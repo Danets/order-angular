@@ -1,0 +1,29 @@
+<section>
+    <header>
+        Task: <strong>{{commonService.date | async | moment: "DD MMMM YYYY"}}</strong>
+        <hr>
+    </header>
+
+    <main>
+        <ul>
+            <li class="task">
+                <span>
+                    <strong>1</strong>
+                    4545645646
+                </span>
+                <button mat-icon-button color="primary" (click)="removeTask()">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </li>
+        </ul>
+    </main>
+    <footer>
+        <form (ngSubmit)="onSubmit()" [formGroup]="taskForm">
+            <label for="task">Put your task
+                <input name="task" type="text" id="task" class="form-control" placeholder="Task" formControlName="task"
+                    required autocomplete="on">
+            </label>
+            <button mat-raised-button color='primary' type="submit" [disabled]="taskForm.invalid">Submit</button>
+        </form>
+    </footer>
+</section>

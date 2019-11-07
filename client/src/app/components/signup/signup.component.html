@@ -1,0 +1,75 @@
+<form (ngSubmit)='onSubmit(signupForm)' #signupForm='ngForm' class="form-signup">
+
+    <h2 class="form-signin-heading">Sign up</h2>
+
+    <mat-form-field>
+        <!-- <label for="username">Full name</label> -->
+        <input type="text" matInput placeholder="Enter your name" name="username" ngModel #Name="ngModel" required
+            minlength="4">
+        <div *ngIf="Name.invalid && (Name.dirty || Name.touched)" class="alert">
+
+            <div *ngIf="Name.errors.required">
+                Name is required.
+            </div>
+            <div *ngIf="Name.errors.minlength">
+                Name must be at least 4 characters long.
+            </div>
+
+        </div>
+    </mat-form-field>
+
+    <mat-form-field>
+        <!-- <label for="email">Email address</label> -->
+        <input type="email" matInput placeholder="Enter email" name="email" ngModel #Email="ngModel" required email>
+        <div *ngIf="Email.invalid && (Email.dirty || Email.touched)" class="alert">
+
+            <div *ngIf="Email.errors.required">
+                Name is required.
+            </div>
+            <div *ngIf="Email.errors.email">
+                Email must be email and incude @ in his structure!.
+            </div>
+
+        </div>
+    </mat-form-field>
+
+    <mat-form-field>
+        <!-- <label for="password">Password</label> -->
+        <input type="password" matInput placeholder="Password" name="password" ngModel #password="ngModel" required
+            minlength="6">
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">
+
+            <div *ngIf="password.errors.required">
+                Password is required.
+            </div>
+            <div *ngIf="password.errors.minlength">
+                Password must be at least 6 characters long.
+            </div>
+
+        </div>
+    </mat-form-field>
+
+    <!-- <mat-form-field>
+
+        <mat-select name="Select" placeholder="Select" ngModel required [ngModel]="default">
+            <mat-option *ngFor='let ocup of ocupations' [value]="ocup">{{ocup}}</mat-option>
+        </mat-select>
+        
+    </mat-form-field> -->
+
+    <!-- <mat-radio-group name="Radio" placeholder="Radio" ngModel class="radio-group"
+            [(ngModel)]="gender">
+            <mat-radio-button class="radio-btn" *ngFor="let gen of genders" [value]="gen">
+                {{gen}}
+            </mat-radio-button>
+        </mat-radio-group> -->
+
+    <button class="btn-signup" mat-raised-button color='primary' type="submit" [disabled]="!signupForm.form.valid">Sign
+        up</button>
+</form>
+
+<div #appAddForm>
+
+</div>
+
+<!-- <ng-template #appAddForm></ng-template> -->

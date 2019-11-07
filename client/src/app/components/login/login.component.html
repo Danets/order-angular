@@ -1,0 +1,30 @@
+<form class="form-signin" (submit)="handleLogin()">
+    <h2 class="form-signin-heading">Sign in</h2>
+    <label for="inputEmail">Email address
+        <input name="email" type="email" [(ngModel)]="user.email" id="inputEmail" class="form-control"
+            placeholder="Email address" required email #emailInput="ngModel" autocomplete="on">
+    </label>
+    <!-- <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+        Email is required and it must be email!!!
+    </div> -->
+    <label for="inputPassword">Password
+        <input name="password" type="password" [(ngModel)]="user.password" id="inputPassword" class="form-control"
+            placeholder="Password" required #passwordInput="ngModel" autocomplete="on">
+    </label>
+    <!-- <div class="help is-error" *ngIf="passwordInput.invalid && passwordInput.dirty">
+        Password is required !!!
+    </div> -->
+
+    <mat-checkbox>Remember me!</mat-checkbox>
+    <!-- <div class="checkbox">
+        <label>
+            <input type="checkbox" value="remember-me"> Remember me
+        </label>
+    </div> -->
+
+    <div class="checkbox">
+        <a mat-button color='warn' routerLink="/register">Have you not registered yet ?</a>
+    </div>
+
+    <button mat-raised-button color='primary' type="submit">Sign in</button>
+</form>

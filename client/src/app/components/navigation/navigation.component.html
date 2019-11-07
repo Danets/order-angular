@@ -1,0 +1,25 @@
+<header class="header">
+
+    <nav>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact:true}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="organize" routerLinkActive="active">Organizer</a>
+            </li>
+            <li *ngIf="!auth.isLoggedIn()" class="nav-item">
+                <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+            </li>
+            <li *ngIf="auth.isLoggedIn()" class="nav-item">
+                <a class="nav-link" routerLink="/profile" (click)="logout()"
+                    routerLinkActive="active">{{ auth.getUserDetails()?.name }}</a>
+            </li>
+            <li *ngIf="auth.isLoggedIn()" class="nav-item">
+                <a class="nav-link" routerLink="/logout" (click)="auth.logout()" routerLinkActive="active">Logout</a>
+            </li>
+        </ul>
+    </nav>
+
+</header>
