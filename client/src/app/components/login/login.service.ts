@@ -19,7 +19,7 @@ interface TokenResponse {
 
 export interface TokenPayload {
   email: string;
-  username: string;
+  username?: string;
   password: string;
 }
 

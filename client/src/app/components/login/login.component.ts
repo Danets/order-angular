@@ -13,7 +13,6 @@ export class LoginComponent implements OnInit {
 
   user: TokenPayload = {
     email: '',
-    username: '',
     password: ''
   };
   // public user: User;
@@ -26,10 +25,15 @@ export class LoginComponent implements OnInit {
   }
 
   handleLogin() {
-
+console.log(this.user)
     this.loginService.login(this.user).subscribe(() => {
       this.router.navigateByUrl('/profile');
-    }, err => console.error(err))
+    }, err => console.dir(err))
+
+    this.user = {
+      email: '',
+      password: ''
+    };
 
     // if (this.user.username && this.user.password) {
     //   this.loginService.validateLogin(this.user).subscribe(result => {

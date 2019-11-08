@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -60,8 +59,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MaterialModule,
-    FontAwesomeModule
+    MaterialModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]

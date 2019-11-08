@@ -7,13 +7,12 @@ require('dotenv').config();
 
 // create a schema
 const userSchema = new Schema({
+    email: { type: String, required: true, unique: true },
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    //email: { type: String, required: true, unique: true }
     hash: String,
     salt: String
-}, { collection: 'user' },
-    { versionKey: false }
+}, { collection: 'user' }
 );
 
 userSchema.methods.setPassword = function (password) {
@@ -35,11 +34,11 @@ userSchema.methods.generateJwt = function () {
         //email: this.email,
         name: this.username,
         exp: parseInt(expiry.getTime() / 1000),
-    }, process.env.SECRET_KEY);  // IT IS REALLY IMPORTANT => DO NOT KEEP YOUR SECRET IN THE CODE!!! 
+    }, "MY_SECRET");  // IT IS REALLY IMPORTANT => DO NOT KEEP YOUR SECRET IN THE CODE!!! 
 };
 
-// const User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 
-// module.exports = User;
+module.exports = User;
 
-mongoose.model('User', userSchema);
+// mongoose.model('User', userSchema);

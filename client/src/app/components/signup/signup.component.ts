@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit, AfterContentInit {
 
   // public user: User;
 
- @ViewChild('appAddForm', {read: ViewContainerRef, static: true}) addForm: ViewContainerRef
+@ViewChild('appAddForm', {read: ViewContainerRef, static: true}) addForm: ViewContainerRef
   //@ViewChild(AddFormDirective, {static: true}) addForm: AddFormDirective
 
   constructor(private loginService: LoginService, private router: Router, private componentFactoryResolver: ComponentFactoryResolver) {
@@ -56,12 +56,16 @@ export class SignupComponent implements OnInit, AfterContentInit {
 
 
   onSubmit(form: NgForm) {
-    const {user} = form.value
-    console.log(user);
+    this.user = form.value
+    console.log(this.user);
+
     this.loginService.register(this.user).subscribe(() => {
+      console.log(this.user);
       this.router.navigateByUrl('/profile');
     }, err => console.error(err))
 
+    form.reset();
+    
     // this.user = form.value;
     // console.log(this.user)
 

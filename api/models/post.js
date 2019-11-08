@@ -4,9 +4,10 @@ const Schema = mongoose.Schema;
 const postSchema = new Schema({
     title: { type: String, required: true },
     description: { type: String, required: true }
-}, { collection: 'post' },
-    { versionKey: false }
+}, { collection: 'post' }
 );
 
-const Post = mongoose.model('Post', postSchema);
-module.exports = Post;
+// const Post = mongoose.model('Post', postSchema);
+// module.exports = Post;
+
+mongoose.model('Post', postSchema);
