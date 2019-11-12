@@ -12,7 +12,7 @@ const cors = require('cors');
 // const url = 'mongodb://localhost/user';
 
 // const User = require('./server/models/user');
-const Post = require('./api/models/post');
+// const Post = require('./api/models/post');
 
 const passport = require('passport');
 

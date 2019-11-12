@@ -16,24 +16,20 @@ const ctrlLogin = require('../controllers/login');
 const ctrlPost = require('../controllers/post');
 
 // profile
-router.get('/profile', auth, (req, res) => ctrlProfile.profileRead);
+router.get('/profile', auth, ctrlProfile.profileRead);
 
 // // authentication
-router.post('/register', (req, res) => ctrlAuth.register);
+router.post('/register', ctrlAuth.register);
 
-router.post('/login', (req, res) => ctrlLogin.login);
+router.post('/login', ctrlLogin.login);
 
 // Posts
-router.get('/post', function (req, res) {
-    ctrlLogin.login
-});
+router.get('/post', ctrlPost.getPosts);
 
-router.post('/post', function (req, res) {
-    ctrlPost.createPost
-});
+router.post('/post', ctrlPost.createPost);
 
-router.post('/post', function (req, res) {
-    ctrlPost.deletePost
-});
+router.put('/post', ctrlPost.updatePost);
+
+router.post('/post/deletePost', ctrlPost.deletePost);
 
 module.exports = router;

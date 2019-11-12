@@ -1,5 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormGroup, FormBuilder } from '@angular/forms';
+
 import { Post } from '../models/post'
 import { PostService } from './post.service';
 import { CommonService } from './common.service';
@@ -10,36 +12,42 @@ import { CommonService } from './common.service';
 })
 export class DialogEditComponent implements OnInit {
     post: Post
+    form: FormGroup
 
-    constructor(public dialogRef: MatDialogRef<DialogEditComponent>,
+    constructor(
+        private fb: FormBuilder,
+        public dialogRef: MatDialogRef<DialogEditComponent>,
+        @Inject(MAT_DIALOG_DATA) public data: Post,
         private postService: PostService,
-        private commonService: CommonService,
-        @Inject(MAT_DIALOG_DATA) public data: Post) {
-        this.post = new Post();
+        private commonService: CommonService
+    ) {
+        this.post = data;
     }
 
     ngOnInit() {
-        this.postService.$postStream.subscribe(res => {
-            this.post = res;
-            console.log(`It is mine: ${res}`);
-        })    
+        this.form = this.fb.group({
+            _id: this.post._id,
+            title: this.post.title,
+            description: this.post.description,
+        })
     }
 
     cancelClick(): void {
         this.dialogRef.close();
     }
 
-    editPost(post: Post) {
+    editPost() {
+        this.post = this.form.value
 
         if (this.post.title && this.post.description) {
-            
+
             if (this.post._id) {
                 this.postService.updatePost(this.post).subscribe(res => {
                     this.commonService.notifyPostAddition();
                     this.cancelClick();
                 });
             } else {
-                console.log('Fuck!!!');
+                console.log('Post does not exist!!!');
             }
 
         } else {
@@ -47,6 +55,5 @@ export class DialogEditComponent implements OnInit {
         }
 
     }
-
 
 }

@@ -109,20 +109,4 @@ export class LoginService {
     return this.request('get', 'profile');
   }
 
-
-  // validateLogin(user: User) {
-  //   return this.http.post('/api/user/login', {
-  //     username: user.username,
-  //     password: user.password
-  //   })
-  // }
-
-  // validateRegister(user: User) {
-  //   return this.http.post('/api/user/signup', {
-  //     username: user.username,
-  //     password: user.password,
-  //     //email: user.email
-  //   }, httpOptions)
-  // }
-
 }

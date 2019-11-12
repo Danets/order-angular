@@ -9,6 +9,6 @@
     </mat-form-field>
 </div>
 <div mat-dialog-actions>
-    <button mat-button (click)="cancelClick()">Cancel</button>
-    <button mat-button (click)="addPost()" cdkFocusInitial>Ok</button>
+    <button mat-raised-button color="primary" (click)="addPost()" cdkFocusInitial>Ok</button>
+    <button mat-raised-button color="warn" (click)="cancelClick()">Cancel</button>
 </div>

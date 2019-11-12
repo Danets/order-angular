@@ -1,20 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Post } from '../models/post';
-
-import { Subject } from 'rxjs';
-
-const httpOptions = {
-    headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-    })
-};
-
 @Injectable({
     providedIn: 'root'
 })
 export class PostService {
-    $postStream = new Subject<any>();
 
     constructor(private http: HttpClient) { }
 
@@ -27,12 +17,11 @@ export class PostService {
             {
                 title: post.title,
                 description: post.description
-            },
-            httpOptions)
+            })
     }
 
     updatePost(post: Post) {
-        return this.http.put('/api/post', {
+        return this.http.put<Post>('/api/post', {
             id: post._id,
             title: post.title,
             description: post.description

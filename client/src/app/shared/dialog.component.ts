@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
+
 import { Post } from '../models/post'
 import { PostService } from './post.service';
 import { CommonService } from './common.service';
@@ -17,9 +18,7 @@ export class DialogComponent implements OnInit {
         this.post = new Post();
     }
 
-    ngOnInit() {
-        
-    }
+    ngOnInit() { }
 
     cancelClick(): void {
         this.dialogRef.close();
@@ -29,20 +28,9 @@ export class DialogComponent implements OnInit {
 
         if (this.post.title && this.post.description) {
             this.postService.addPost(this.post).subscribe(res => {
-                        this.commonService.notifyPostAddition();
-                        this.cancelClick();
-                    })
-            // if (this.post._id) {
-            //     this.postService.updatePost(this.post).subscribe(res => {
-            //         this.commonService.notifyPostAddition();
-            //         this.cancelClick();
-            //     });
-            // } else {
-            //     this.postService.addPost(this.post).subscribe(res => {
-            //         this.commonService.notifyPostAddition();
-            //         this.cancelClick();
-            //     })
-            // }
+                this.commonService.notifyPostAddition();
+                this.cancelClick();
+            })
         } else {
             alert('Title and Description are empty!!!');
         }

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Post = mongoose.model('Post');
+const Post = require('../models/post');
 
 module.exports.getPosts = (req, res) => {
 
@@ -26,6 +26,22 @@ module.exports.createPost = (req, res) => {
             data: doc
         })
     })
+
+};
+
+module.exports.updatePost = (req, res) => {
+
+    Post.findByIdAndUpdate(
+        { _id: req.body.id },
+        { title: req.body.title, description: req.body.description },
+        { new: true },
+        (err, doc) => {
+            if (err) throw err;
+            return res.status(200).json({
+                status: 'success',
+                data: doc
+            })
+        })
 
 };
 

@@ -1,4 +1,4 @@
-<form class="form-signin" (submit)="handleLogin()">
+<form class="form-signin" (ngSubmit)='handleLogin(signinForm)' #signinForm='ngForm'>
     <h2 class="form-signin-heading">Sign in</h2>
     <label for="inputEmail">Email address
         <input name="email" type="email" [(ngModel)]="user.email" id="inputEmail" class="form-control"
@@ -26,5 +26,5 @@
         <a mat-button color='warn' routerLink="/register">Have you not registered yet ?</a>
     </div>
 
-    <button mat-raised-button color='primary' type="submit">Sign in</button>
+    <button mat-raised-button color='primary' type="submit" [disabled]="signinForm.form.invalid">Sign in</button>
 </form>

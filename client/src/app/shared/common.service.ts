@@ -8,8 +8,8 @@ import * as moment  from 'moment';
 })
 export class CommonService {
 
-    public postAdded_Observable = new Subject();
-    public postEdit_Observable = new Subject();
+    public $postAdded_Observable = new Subject();
+    public $postEdit_Observable = new Subject();
     public post_has_been_edited;
     
     public date: BehaviorSubject<moment.Moment> = new BehaviorSubject(moment())
@@ -32,11 +32,11 @@ export class CommonService {
     }
 
     notifyPostAddition() {
-        this.postAdded_Observable.next();
+        this.$postAdded_Observable.next();
     }
 
     notifyPostEdit(){
-		this.postEdit_Observable.next();
+		this.$postEdit_Observable.next();
     }
     
     setPostToEdit(post: Post){

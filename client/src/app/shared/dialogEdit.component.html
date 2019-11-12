@@ -1,14 +1,14 @@
 <h1 mat-dialog-title>Hi the best Athor!!!</h1>
-<div mat-dialog-content>
+<div mat-dialog-content [formGroup]="form">
     <p>Edit your post ?</p>
     <mat-form-field>
-        <input matInput placeholder="data.title" value="data.title" [(ngModel)]="post.title">
+        <input matInput placeholder="Put title" formControlName="title">
     </mat-form-field>
     <mat-form-field>
-        <textarea matInput placeholder="data.description" value="data.description" [(ngModel)]="post.description"></textarea>
+        <textarea matInput placeholder="Put description" formControlName="description"></textarea>
     </mat-form-field>
 </div>
 <div mat-dialog-actions>
-    <button mat-button (click)="cancelClick()">Cancel</button>
-    <button mat-button (click)="editPost()" cdkFocusInitial>Edit</button>
+    <button type="submit" mat-raised-button color="primary" (click)="editPost()" cdkFocusInitial>Edit</button>
+    <button mat-raised-button color="warn" (click)="cancelClick()">Cancel</button>
 </div>

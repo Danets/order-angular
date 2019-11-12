@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService, TokenPayload } from './login.service';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 import { User } from '../../models/user'
 
@@ -24,16 +25,14 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  handleLogin() {
-console.log(this.user)
+  handleLogin(form: NgForm) {
+    this.user = form.value
+    console.log(this.user)
     this.loginService.login(this.user).subscribe(() => {
       this.router.navigateByUrl('/profile');
     }, err => console.dir(err))
 
-    this.user = {
-      email: '',
-      password: ''
-    };
+    form.reset();
 
     // if (this.user.username && this.user.password) {
     //   this.loginService.validateLogin(this.user).subscribe(result => {

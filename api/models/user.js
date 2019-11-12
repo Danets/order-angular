@@ -12,7 +12,8 @@ const userSchema = new Schema({
     password: { type: String, required: true },
     hash: String,
     salt: String
-}, { collection: 'user' }
+}, { collection: 'user'},
+{versionKey: false}
 );
 
 userSchema.methods.setPassword = function (password) {
@@ -37,8 +38,8 @@ userSchema.methods.generateJwt = function () {
     }, "MY_SECRET");  // IT IS REALLY IMPORTANT => DO NOT KEEP YOUR SECRET IN THE CODE!!! 
 };
 
-const User = mongoose.model('User', userSchema);
+// const User = mongoose.model('User', userSchema);
 
-module.exports = User;
+// module.exports = User;
 
-// mongoose.model('User', userSchema);
+mongoose.model('User', userSchema);
