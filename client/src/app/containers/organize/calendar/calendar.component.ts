@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment  from 'moment';
-import {CommonService}  from '../../shared/common.service';
+import {CommonService}  from '../../../shared/common.service';
 
 interface Day {
   value: moment.Moment,

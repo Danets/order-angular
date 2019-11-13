@@ -3,7 +3,7 @@ import { LoginService, TokenPayload } from './login.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
-import { User } from '../../models/user'
+import { User } from '../../../models/user'
 
 @Component({
   selector: 'app-login',
@@ -33,23 +33,6 @@ export class LoginComponent implements OnInit {
     }, err => console.dir(err))
 
     form.reset();
-
-    // if (this.user.username && this.user.password) {
-    //   this.loginService.validateLogin(this.user).subscribe(result => {
-    //     if (result['status'] === 'success') {
-    //       localStorage.setItem('loggedInUser', this.user.username);
-    //       this.router.navigate(['/home']);
-    //       //this.user = result['data'][0];
-    //     } else {
-    //       alert('Wrong username password');
-    //     }
-
-    //   }, error => {
-    //     console.log('error is ', error);
-    //   });
-    // } else {
-    //   alert('enter user name and password');
-    // }
   }
 
 }

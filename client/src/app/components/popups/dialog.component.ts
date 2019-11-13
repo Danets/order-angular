@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
-import { Post } from '../models/post'
-import { PostService } from './post.service';
-import { CommonService } from './common.service';
+import { Post } from '../../models/post'
+import { PostService } from '../posts/post.service';
+import { CommonService } from '../../shared/common.service';
 
 @Component({
     selector: 'app-dialog',

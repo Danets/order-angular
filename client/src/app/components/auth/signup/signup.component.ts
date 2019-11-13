@@ -4,10 +4,10 @@ import { NgForm } from '@angular/forms';
 import { LoginService, TokenPayload } from '../login/login.service';
 import { Router } from '@angular/router';
 
-import { AddFormDirective } from '../../directives/add-form.directive';
-import { PostComponent } from '../posts/list-post/post/post.component';
+import { AddFormDirective } from '../../../directives/add-form.directive';
+import { PostComponent } from '../../posts/list-post/post/post.component';
 
-import { User } from '../../models/user'
+import { User } from '../../../models/user'
 
 @Component({
   selector: 'app-signup',
@@ -59,28 +59,13 @@ export class SignupComponent implements OnInit, AfterContentInit {
     this.user = form.value
     console.log(this.user);
 
-    this.loginService.register(this.user).subscribe(() => {
-      console.log(this.user);
+    this.loginService.register(this.user).subscribe(res => {
+      console.log(`Auth response: ${res}`);
       this.router.navigateByUrl('/profile');
     }, err => console.error(err))
 
     form.reset();
     
-    // this.user = form.value;
-    // console.log(this.user)
-
-    // this.loginService.validateRegister(this.user).subscribe(result => {
-    //   if (result['status'] === 'success') {
-    //     localStorage.setItem('loggedInUser', this.user.username);
-    //     this.router.navigate(['/home']);
-    //   } else {
-    //     alert('Name or password exists!');
-    //   }
-
-    // }, error => {
-    //   console.log('error is ', error);
-    // });
-
   }
 
 }

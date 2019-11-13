@@ -2,9 +2,9 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import { Post } from '../models/post'
-import { PostService } from './post.service';
-import { CommonService } from './common.service';
+import { Post } from '../../models/post'
+import { PostService } from '../posts/post.service';
+import { CommonService } from '../../shared/common.service';
 
 @Component({
     selector: 'app-dialog',

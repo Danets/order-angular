@@ -10,26 +10,31 @@ import { MaterialModule } from './shared/material.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
-import { HomeComponent } from './components/home/home.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
+
+import { LoginComponent } from './components/auth/login/login.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
+import { ProfileComponent } from './components/auth/profile/profile.component';
+
+import { LoginService } from './components/auth/login/login.service';
+
+import { HomeComponent } from './components/layout/home/home.component';
+import { NavigationComponent } from './components/layout/navigation/navigation.component';
+import { FooterComponent } from './components/layout/footer/footer.component';
+
 import { ListPostComponent } from './components/posts/list-post/list-post.component';
-import { AddPostComponent } from './components/posts/add-post/add-post.component';
-import {DialogComponent} from './shared/dialog.component';
-import {DialogEditComponent} from './shared/dialogEdit.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { SignupComponent } from './components/signup/signup.component';
 import { PostComponent } from './components/posts/list-post/post/post.component';
+
+import {DialogComponent} from './components/popups/dialog.component';
+import {DialogEditComponent} from './components/popups/dialogEdit.component';
+
+import { OrganizeComponent } from './containers/organize/organize.component';
+import { SelectorComponent } from './containers/organize/selector/selector.component';
+import { CalendarComponent } from './containers/organize/calendar/calendar.component';
+import { TaskrunnerComponent } from './containers/organize/taskrunner/taskrunner.component';
+
 import { AddFormDirective } from './directives/add-form.directive';
 
-import { LoginService } from './components/login/login.service';
-import { OrganizeComponent } from './containers/organize/organize.component';
-import { SelectorComponent } from './components/selector/selector.component';
-import { CalendarComponent } from './components/calendar/calendar.component';
 import { MomentPipe } from './pipes/moment.pipe';
-import { TaskrunnerComponent } from './components/taskrunner/taskrunner.component';
-import { ProfileComponent } from './components/profile/profile.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +42,6 @@ import { ProfileComponent } from './components/profile/profile.component';
     HomeComponent,
     NavigationComponent,
     ListPostComponent,
-    AddPostComponent,
     DialogComponent,
     DialogEditComponent,
     FooterComponent,

@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LoginComponent } from './components/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';
-import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
+import { HomeComponent } from './components/layout/home/home.component';
 import { OrganizeComponent } from './containers/organize/organize.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileComponent } from './components/auth/profile/profile.component';
 
-import {AuthGuardService } from './auth-guard.service';
+import {AuthGuardService } from './components/auth/auth-guard.service';
 
 const routes: Routes = [
 	{ path: '', pathMatch: 'full', component: HomeComponent },

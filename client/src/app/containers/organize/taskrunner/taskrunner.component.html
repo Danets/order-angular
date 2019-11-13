@@ -1,4 +1,5 @@
 <section>
+
     <header>
         Task: <strong>{{commonService.date | async | moment: "DD MMMM YYYY"}}</strong>
         <hr>
@@ -6,24 +7,26 @@
 
     <main>
         <ul>
-            <li class="task">
+            <li class="task" *ngFor="let task of tasks; let i = index">
                 <span>
-                    <strong>1</strong>
-                    4545645646
+                    <strong>{{i + 1}}</strong>
+                    {{task.title}}
                 </span>
-                <button mat-icon-button color="primary" (click)="removeTask()">
+                <button mat-icon-button color="accent" (click)="removeTask(task)">
                     <mat-icon>delete</mat-icon>
                 </button>
             </li>
         </ul>
     </main>
+
     <footer>
-        <form (ngSubmit)="onSubmit()" [formGroup]="taskForm">
+        <form (ngSubmit)="createTask()" [formGroup]="taskForm">
             <label for="task">Put your task
-                <input name="task" type="text" id="task" class="form-control" placeholder="Task" formControlName="task"
-                    required autocomplete="on">
+                <input type="text" id="task" class="form-control" placeholder="Put your task" name="title"
+                    formControlName="title" required autocomplete="on">
             </label>
             <button mat-raised-button color='primary' type="submit" [disabled]="taskForm.invalid">Submit</button>
         </form>
     </footer>
+
 </section>

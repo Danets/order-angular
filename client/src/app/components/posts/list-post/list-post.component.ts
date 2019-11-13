@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { PostService } from '../../../shared/post.service';
+import { PostService } from '../post.service';
 import { Post } from '../../../models/post';
 import { CommonService } from '../../../shared/common.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { DialogComponent } from '../../../shared/dialog.component';
-import { DialogEditComponent } from '../../../shared/dialogEdit.component';
+import { DialogComponent } from '../../popups/dialog.component';
+import { DialogEditComponent } from '../../popups/dialogEdit.component';
 @Component({
   selector: 'app-list-post',
   templateUrl: './list-post.component.html',
