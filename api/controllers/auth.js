@@ -8,20 +8,27 @@ var sendJSONresponse = function (res, status, content) {
 };
 
 module.exports.register = (req, res) => {
-    const user = new User();
-
+    // const user = new User({
+    //     email: req.body.email,
+    //     username: req.body.username,
+    //     password: User.setPassword(req.body.password)
+    // });
+    const user = new User()
     // user.name = req.body.name;
     user.email = req.body.email;
     user.username = req.body.username;
-
     user.setPassword(req.body.password);
 
-    user.save((err) => {
+    user.save((err, doc) => {
+        if (err){
+            console.log('Error: ', err)
+        } 
+
         let token;
         token = user.generateJwt();
-        res.status(200);
-        res.json({
-            "token": token
+        return res.status(200).json({
+            "token": token,
+            data: doc
         });
     });
 };

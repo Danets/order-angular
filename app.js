@@ -7,9 +7,9 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-// const url = 'mongodb://localhost/user';
+const url = 'mongodb://localhost/user';
 
 // const User = require('./server/models/user');
 // const Post = require('./api/models/post');
@@ -85,10 +85,10 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-// mongoose.connect(url, { useNewUrlParser: true }, function (err) {
-//     if (err) throw err;
-//     app.listen(3000, () => console.log('Angular server running on port 3000!'));
-// });
+mongoose.connect(url, { useNewUrlParser: true }, function (err) {
+    if (err) throw err;
+    app.listen(3000, () => console.log('Angular server running on port 3000!'));
+});
 
 // app.post('/api/user/login', (req, res) => {
 
