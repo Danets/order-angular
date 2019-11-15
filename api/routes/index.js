@@ -35,7 +35,7 @@ router.put('/post', ctrlPost.updatePost);
 router.post('/post/deletePost', ctrlPost.deletePost);
 
 // Tasks
-router.get('/task', ctrlTask.getTasks);
+router.post('/task/date', ctrlTask.getTasks);
 
 router.post('/task', ctrlTask.createTask);
 

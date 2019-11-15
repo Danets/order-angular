@@ -6,22 +6,37 @@
     </header>
 
     <main>
-        <ul>
-            <li class="task" *ngFor="let task of tasks; let i = index">
+
+        <mat-button-toggle-group name="sort" aria-label="Sort of tasks">
+            <mat-button-toggle value="sort">
+                <mat-icon>sort</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle value="search">
+                <mat-icon>search</mat-icon>
+            </mat-button-toggle>
+        </mat-button-toggle-group>
+
+        <ul *ngIf="tasks; else notice">
+            <li class="task" *ngFor="let task of $tasks | async">
                 <span>
-                    <strong>{{i + 1}}</strong>
-                    {{task.title}}
+                    Id: <strong>{{task?._id}}</strong>
+                    Title: <strong>{{task?.title}}</strong>
                 </span>
                 <button mat-icon-button color="accent" (click)="removeTask(task)">
                     <mat-icon>delete</mat-icon>
                 </button>
             </li>
         </ul>
+
+        <ng-template #notice>
+            <div>Tasks does not exist yet! Fill in your tasks!</div>
+        </ng-template>
+
     </main>
 
     <footer>
-        <form (ngSubmit)="createTask()" [formGroup]="taskForm">
-            <label for="task">Put your task
+        <form class="form-task" (ngSubmit)="createTask()" [formGroup]="taskForm">
+            <label for="task">Put your task:
                 <input type="text" id="task" class="form-control" placeholder="Put your task" name="title"
                     formControlName="title" required autocomplete="on">
             </label>

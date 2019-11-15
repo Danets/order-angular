@@ -1,9 +1,5 @@
-export class Task {
-    public _id: string;
-    public title: string;
-    
-    constructor() {
-        this._id = '';
-        this.title = '';
-    }
+export interface Task {
+    _id?: string;
+    title: string;
+    date?: string;
 }

@@ -1,23 +1,39 @@
 section {
-    border: 1px solid #000;
-    padding: 10px;
+  border: 1px solid #000;
+  padding: 10px;
 
-    header {
-        margin-bottom: 10px;
+  header {
+    margin-bottom: 10px;
+  }
+
+  footer {
+    .form-task {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .form-control {
+        margin-left: 6px;
+        &:focus {
+            outline: none;
+            border-color: red;
+        }
+      }
     }
+  }
 }
 
 ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
-    .task {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-        border: 1px solid #ccc;
-        margin-bottom: 5px;
-    }
+  .task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+  }
 }

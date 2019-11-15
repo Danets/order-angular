@@ -26,12 +26,14 @@ table {
   .active {
       color: var(--primary-color);
       font-weight: bold;
-      background: yellow;
+      font-size: 20px;
+      color: red;
   }
 
   .selected {
-      color: green;
-      background: blue;
+      font-weight: bold;
+      font-size: 20px;
+      color: blue;
   }
 
 }

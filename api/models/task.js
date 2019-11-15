@@ -1,9 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+require('mongoose-moment')(mongoose);
+const moment = require('moment');
+
+// moment.fn.toJSON = function() { return this.format(YYYY-MMMM-DD); }
 
 const taskSchema = new Schema({
-    title: { type: String }
-}, { collection: 'tasks' },
+    title: { type: String },
+    // date: { type: Date, default: moment().format('YYYY-MMMM-DD')},
+    date: 'Moment'
+}, { collection: 'tasks'},
     { versionKey: false }
 );
 
