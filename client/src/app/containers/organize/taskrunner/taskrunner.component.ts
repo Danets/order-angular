@@ -13,24 +13,28 @@ import { switchMap, tap } from 'rxjs/operators';
   styleUrls: ['./taskrunner.component.scss']
 })
 export class TaskrunnerComponent implements OnInit {
-  $tasks: Observable<Task[]>;
+   tasks: Task[] = []
+  // tasks$: Observable<Task[]>;
   taskForm: FormGroup;
 
   constructor(private commonService: CommonService, private taskrunnerService: TaskrunnerService) { }
 
   ngOnInit() {
-    this.onLoadTasks()
     this.taskForm = new FormGroup({
       title: new FormControl('', Validators.minLength(6))
     })
+    this.onLoadTasks()
   }
 
   onLoadTasks() {
-    // this.$tasks = this.taskrunnerService.getAllTasks()
-    this.$tasks = this.commonService.date.pipe(
-    tap(value => console.log(value)),
-    switchMap(value => this.taskrunnerService.getAllTasks(value))
-    )
+    // this.tasks$ = this.taskrunnerService.getAllTasks()
+    //  this.taskrunnerService.getAllTasks().subscribe(tasks => this.tasks = tasks)
+    this.commonService.date.pipe(
+    //tap(value => console.log(value)),
+    switchMap(value => {
+      return this.taskrunnerService.getAllTasks(value)
+    })
+    ).subscribe(tasks => this.tasks = tasks)
   }
 
   createTask() {
@@ -38,19 +42,21 @@ export class TaskrunnerComponent implements OnInit {
 
     const task: Task = {
       title,
-      date: this.commonService.date.value.format('YYYY-MMMM-DD')
+      date: this.commonService.date.value.format('DD-MM-YYYY')
     }
 
     this.taskrunnerService.addTask(task).subscribe(res => {
+      this.tasks.push(task)
+      //this.onLoadTasks()
       this.taskForm.reset()
-      this.onLoadTasks()
       console.log(res)
     }, err => console.error(err))
   }
 
   removeTask(task: Task) {
-    this.taskrunnerService.deleteTask(task._id).subscribe(res => {
-      this.onLoadTasks()
+    this.taskrunnerService.deleteTask(task).subscribe(res => {
+      this.tasks = this.tasks.filter(t => t._id !== task._id)
+      //this.onLoadTasks()
     }, err => console.error(err))
   }
 

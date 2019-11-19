@@ -35,12 +35,12 @@ router.put('/post', ctrlPost.updatePost);
 router.post('/post/deletePost', ctrlPost.deletePost);
 
 // Tasks
-router.post('/task/date', ctrlTask.getTasks);
+// router.post('/task/date', ctrlTask.getTasks);
 
-router.post('/task', ctrlTask.createTask);
+// router.post('/task', ctrlTask.createTask);
 
 // router.put('/post', ctrlPost.updatePost);
 
-router.post('/task/deleteTask', ctrlTask.deleteTask);
+// router.post('/task/deleteTask', ctrlTask.deleteTask);
 
 module.exports = router;

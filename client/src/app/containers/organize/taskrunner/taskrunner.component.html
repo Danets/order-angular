@@ -16,11 +16,11 @@
             </mat-button-toggle>
         </mat-button-toggle-group>
 
-        <ul *ngIf="tasks; else notice">
-            <li class="task" *ngFor="let task of $tasks | async">
+        <ul *ngIf="tasks.length; else notice">
+            <li class="task" *ngFor="let task of tasks; let i = index">
                 <span>
-                    Id: <strong>{{task?._id}}</strong>
-                    Title: <strong>{{task?.title}}</strong>
+                    Id: <strong>{{i + 1}}</strong>
+                    Title: <strong>{{task.title}}</strong>
                 </span>
                 <button mat-icon-button color="accent" (click)="removeTask(task)">
                     <mat-icon>delete</mat-icon>

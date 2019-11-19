@@ -1,9 +1,22 @@
 const mongoose = require('mongoose');
 const Task = require('../models/task');
+const moment = require('moment');
+
+const start = moment().subtract(24, 'hours').toDate();
 
 module.exports.getTasks = (req, res) => {
-    // Task.find({date: req.body.date.valueOf()}, (err, doc) => {
-    //     console.log(doc.date.format());
+    Task.find({'date': {'$gte': start} })
+     .then(date => {
+         if(moment.isMoment(date)) {
+            return res.status(200).json({
+                status: 'success',
+                data: date
+            })
+         }
+     })
+
+    // return Task.find( {date: req.body.date }, function(err, doc){
+    //     console.log(doc)
     //     if (err) {
     //         throw err;
     //         console.log(err)
@@ -13,15 +26,21 @@ module.exports.getTasks = (req, res) => {
     //         data: doc
     //     })
     // })
-    Task.find().exec( function(err, list) {
-        res.json(list.map(function(item){
-            if(moment.isMoment(item.date)){
-                item.date = item.date.format("YYYY-MMMM-DD");
-            }
-            return item;
-        })
-    )
-    })
+
+    // return Task.find({date: req.body.date}).exec( function(err, list) {
+    //     if (err) {
+    //                 throw err;
+    //                 console.log(err)
+    //             } 
+    //     console.log(list);
+    //     res.json(list.map(function(item){
+    //         if(moment.isMoment(item.date)){
+    //             item.date = item.date.format("YYYY-MM-DD");
+    //         }
+    //         return item;
+    //     })
+    // )
+    // })
 };
 
 module.exports.createTask = (req, res) => {
