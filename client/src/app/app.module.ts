@@ -35,6 +35,7 @@ import { TaskrunnerComponent } from './containers/organize/taskrunner/taskrunner
 import { AddFormDirective } from './directives/add-form.directive';
 
 import { MomentPipe } from './pipes/moment.pipe';
+import { TaskSearchComponent } from './containers/organize/task-search/task-search.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,8 @@ import { MomentPipe } from './pipes/moment.pipe';
     CalendarComponent,
     MomentPipe,
     TaskrunnerComponent,
-    ProfileComponent
+    ProfileComponent,
+    TaskSearchComponent
   ],
   entryComponents: [DialogComponent, DialogEditComponent, PostComponent],
   imports: [

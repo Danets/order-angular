@@ -1,0 +1,4 @@
+<div id="search-component" [hidden]="visible">
+    <h4><label for="search-box">Task Search</label></h4>
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+</div>

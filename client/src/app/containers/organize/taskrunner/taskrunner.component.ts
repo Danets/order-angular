@@ -16,6 +16,7 @@ export class TaskrunnerComponent implements OnInit {
    tasks: Task[] = []
   // tasks$: Observable<Task[]>;
   taskForm: FormGroup;
+  visibleInput: boolean = true;
 
   constructor(private commonService: CommonService, private taskrunnerService: TaskrunnerService) { }
 
@@ -24,6 +25,10 @@ export class TaskrunnerComponent implements OnInit {
       title: new FormControl('', Validators.minLength(6))
     })
     this.onLoadTasks()
+  }
+
+  toggleSearch() {
+    this.visibleInput = !this.visibleInput
   }
 
   onLoadTasks() {

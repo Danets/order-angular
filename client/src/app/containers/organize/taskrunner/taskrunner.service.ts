@@ -38,7 +38,11 @@ export class TaskrunnerService {
 // }
 
 addTask(task: Task): Observable<Task> {
-  return this.http.post<Task>(`${this.url}/${task.date}.json`, task)
+  return this.http.post<Task>(`${this.url}/${task.date}.json`, task).pipe(
+    map(res => {
+      return {...task}
+    })
+  )
 }
 
 deleteTask(task: Task): Observable<void> {

@@ -6,6 +6,36 @@ section {
     margin-bottom: 10px;
   }
 
+  main {
+
+    .group-btn {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+
+      .btn-toggle {
+        width: 30%;
+        background: #a4ecec;
+      }
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    
+      .task {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+        margin-bottom: 5px;
+      }
+    }
+
+  }
+
   footer {
     .form-task {
       display: flex;
@@ -23,17 +53,4 @@ section {
   }
 }
 
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
 
-  .task {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    border: 1px solid #ccc;
-    margin-bottom: 5px;
-  }
-}
