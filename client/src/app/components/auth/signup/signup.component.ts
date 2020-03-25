@@ -62,9 +62,11 @@ export class SignupComponent implements OnInit, AfterContentInit {
     this.loginService.register(this.user).subscribe(res => {
       console.log(`Auth response: ${res}`);
       this.router.navigateByUrl('/profile');
+      // this.router.navigate(['/profile']);
+      form.reset();
     }, err => console.error(err))
 
-    form.reset();
+    // form.reset();
     
   }
 
